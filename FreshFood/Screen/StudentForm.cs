@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace FreshFood.Screen
 {
-    public partial class HomeForm : Form
+    public partial class StudentForm : Form
     {
-        public HomeForm()
+        public StudentForm()
         {
             InitializeComponent();
-        }
-
-        private void HomeForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -85,6 +85,7 @@
             this.Font = new System.Drawing.Font("Calibri", 12F);
             this.Name = "HomeForm";
             this.Text = "Trang chủ";
+            this.Load += new System.EventHandler(this.HomeForm_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);

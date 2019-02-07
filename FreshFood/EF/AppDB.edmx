@@ -1,0 +1,575 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FreshFoodModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Username" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Image" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="Price" Type="float" />
+          <Property Name="ExpirationDays" Type="int" />
+          <Property Name="SupplierId" Type="int" />
+        </EntityType>
+        <EntityType Name="SellOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Employee" Type="nvarchar" MaxLength="255" />
+          <Property Name="Status" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="SellOrderDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="Price" Type="float" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="SellOrderId" Type="int" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="25" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="255" />
+          <Property Name="UserType" Type="int" />
+          <Property Name="Fullname" Type="nvarchar" MaxLength="255" />
+          <Property Name="BirthDate" Type="date" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_Customer_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="Username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="SupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SellOrder_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SellOrder" Type="Self.SellOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SellOrder">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SellOrder_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="SellOrder" Type="Self.SellOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="SellOrder">
+              <PropertyRef Name="Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SellOrderDetail_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SellOrderDetail" Type="Self.SellOrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SellOrderDetail">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SellOrderDetail_SellOrder">
+          <End Role="SellOrder" Type="Self.SellOrder" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SellOrderDetail" Type="Self.SellOrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SellOrder">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SellOrderDetail">
+              <PropertyRef Name="SellOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FreshFoodModelStoreContainer">
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SellOrder" EntityType="Self.SellOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SellOrderDetail" EntityType="Self.SellOrderDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Customer_User" Association="Self.FK_Customer_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Supplier" Association="Self.FK_Product_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SellOrder_Customer" Association="Self.FK_SellOrder_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="SellOrder" EntitySet="SellOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SellOrder_User" Association="Self.FK_SellOrder_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="SellOrder" EntitySet="SellOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SellOrderDetail_Product" Association="Self.FK_SellOrderDetail_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="SellOrderDetail" EntitySet="SellOrderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SellOrderDetail_SellOrder" Association="Self.FK_SellOrderDetail_SellOrder">
+            <End Role="SellOrder" EntitySet="SellOrder" />
+            <End Role="SellOrderDetail" EntitySet="SellOrderDetail" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FreshFoodModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AppDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="FreshFoodModel.Category" />
+          <EntitySet Name="Customers" EntityType="FreshFoodModel.Customer" />
+          <EntitySet Name="Products" EntityType="FreshFoodModel.Product" />
+          <EntitySet Name="SellOrders" EntityType="FreshFoodModel.SellOrder" />
+          <EntitySet Name="SellOrderDetails" EntityType="FreshFoodModel.SellOrderDetail" />
+          <EntitySet Name="Suppliers" EntityType="FreshFoodModel.Supplier" />
+          <EntitySet Name="sysdiagrams" EntityType="FreshFoodModel.sysdiagram" />
+          <EntitySet Name="Users" EntityType="FreshFoodModel.User" />
+          <AssociationSet Name="FK_Product_Category" Association="FreshFoodModel.FK_Product_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_User" Association="FreshFoodModel.FK_Customer_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SellOrder_Customer" Association="FreshFoodModel.FK_SellOrder_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="SellOrder" EntitySet="SellOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Supplier" Association="FreshFoodModel.FK_Product_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SellOrderDetail_Product" Association="FreshFoodModel.FK_SellOrderDetail_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="SellOrderDetail" EntitySet="SellOrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SellOrder_User" Association="FreshFoodModel.FK_SellOrder_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="SellOrder" EntitySet="SellOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SellOrderDetail_SellOrder" Association="FreshFoodModel.FK_SellOrderDetail_SellOrder">
+            <End Role="SellOrder" EntitySet="SellOrders" />
+            <End Role="SellOrderDetail" EntitySet="SellOrderDetails" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="FreshFoodModel.FK_Product_Category" FromRole="Category" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="FreshFoodModel.FK_Customer_User" FromRole="Customer" ToRole="User" />
+          <NavigationProperty Name="SellOrders" Relationship="FreshFoodModel.FK_SellOrder_Customer" FromRole="Customer" ToRole="SellOrder" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="ExpirationDays" Type="Int32" />
+          <Property Name="SupplierId" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="FreshFoodModel.FK_Product_Category" FromRole="Product" ToRole="Category" />
+          <NavigationProperty Name="Supplier" Relationship="FreshFoodModel.FK_Product_Supplier" FromRole="Product" ToRole="Supplier" />
+          <NavigationProperty Name="SellOrderDetails" Relationship="FreshFoodModel.FK_SellOrderDetail_Product" FromRole="Product" ToRole="SellOrderDetail" />
+        </EntityType>
+        <EntityType Name="SellOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Employee" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="FreshFoodModel.FK_SellOrder_Customer" FromRole="SellOrder" ToRole="Customer" />
+          <NavigationProperty Name="User" Relationship="FreshFoodModel.FK_SellOrder_User" FromRole="SellOrder" ToRole="User" />
+          <NavigationProperty Name="SellOrderDetails" Relationship="FreshFoodModel.FK_SellOrderDetail_SellOrder" FromRole="SellOrder" ToRole="SellOrderDetail" />
+        </EntityType>
+        <EntityType Name="SellOrderDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="SellOrderId" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="FreshFoodModel.FK_SellOrderDetail_Product" FromRole="SellOrderDetail" ToRole="Product" />
+          <NavigationProperty Name="SellOrder" Relationship="FreshFoodModel.FK_SellOrderDetail_SellOrder" FromRole="SellOrderDetail" ToRole="SellOrder" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="FreshFoodModel.FK_Product_Supplier" FromRole="Supplier" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="UserType" Type="Int32" />
+          <Property Name="Fullname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Precision="0" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customers" Relationship="FreshFoodModel.FK_Customer_User" FromRole="User" ToRole="Customer" />
+          <NavigationProperty Name="SellOrders" Relationship="FreshFoodModel.FK_SellOrder_User" FromRole="User" ToRole="SellOrder" />
+        </EntityType>
+        <Association Name="FK_Product_Category">
+          <End Type="FreshFoodModel.Category" Role="Category" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FreshFoodModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_User">
+          <End Type="FreshFoodModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="FreshFoodModel.Customer" Role="Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="Username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SellOrder_Customer">
+          <End Type="FreshFoodModel.Customer" Role="Customer" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FreshFoodModel.SellOrder" Role="SellOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SellOrder">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Supplier">
+          <End Type="FreshFoodModel.Supplier" Role="Supplier" Multiplicity="0..1" />
+          <End Type="FreshFoodModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="SupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SellOrderDetail_Product">
+          <End Type="FreshFoodModel.Product" Role="Product" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FreshFoodModel.SellOrderDetail" Role="SellOrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SellOrderDetail">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SellOrder_User">
+          <End Type="FreshFoodModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="FreshFoodModel.SellOrder" Role="SellOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Username" />
+            </Principal>
+            <Dependent Role="SellOrder">
+              <PropertyRef Name="Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SellOrderDetail_SellOrder">
+          <End Type="FreshFoodModel.SellOrder" Role="SellOrder" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FreshFoodModel.SellOrderDetail" Role="SellOrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SellOrder">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SellOrderDetail">
+              <PropertyRef Name="SellOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FreshFoodModelStoreContainer" CdmEntityContainer="AppDB">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="FreshFoodModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="FreshFoodModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="FreshFoodModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="ExpirationDays" ColumnName="ExpirationDays" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SellOrders">
+            <EntityTypeMapping TypeName="FreshFoodModel.SellOrder">
+              <MappingFragment StoreEntitySet="SellOrder">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Employee" ColumnName="Employee" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SellOrderDetails">
+            <EntityTypeMapping TypeName="FreshFoodModel.SellOrderDetail">
+              <MappingFragment StoreEntitySet="SellOrderDetail">
+                <ScalarProperty Name="SellOrderId" ColumnName="SellOrderId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="FreshFoodModel.Supplier">
+              <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="FreshFoodModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="FreshFoodModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

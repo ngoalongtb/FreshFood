@@ -9,5 +9,12 @@ namespace FreshFood.AppCode
     public class ScreenName
     {
         public const string HOME = "Home";
+        public const string CATEGORY = "Category";
+        public const string USER_INFO = "UserInfo";
+        public const string CUSTOMER = "Customer";
+        public const string SUPPLIER = "Supplier";
+        public const string PRODUCT = "Product";
+        public const string USER = "User";
+        public const string STUDENT = "Student";
     }
 }

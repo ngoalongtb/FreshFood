@@ -33,16 +33,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v18.2.Core, Version=18.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v18.2.Core, Version=18.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v18.2.Export, Version=18.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,6 +72,51 @@
     <Compile Include="AppCode\ScreenName.cs" />
     <Compile Include="AppCode\Session.cs" />
     <Compile Include="AppCode\Triggerable.cs" />
+    <Compile Include="EF\AppDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\AppDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\AppDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Category.cs">
+      <DependentUpon>AppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Customer.cs">
+      <DependentUpon>AppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Product.cs">
+      <DependentUpon>AppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\SellOrder.cs">
+      <DependentUpon>AppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\SellOrderDetail.cs">
+      <DependentUpon>AppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Supplier.cs">
+      <DependentUpon>AppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\sysdiagram.cs">
+      <DependentUpon>AppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\User.cs">
+      <DependentUpon>AppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterForm.Designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,12 +131,57 @@
     <Compile Include="ManagerForm.Designer.cs">
       <DependentUpon>ManagerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screen\CategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\CategoryForm.Designer.cs">
+      <DependentUpon>CategoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\CustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\CustomerForm.Designer.cs">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\StudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\StudentForm.Designer.cs">
+      <DependentUpon>StudentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screen\HomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Screen\HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screen\ProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\ProductForm.Designer.cs">
+      <DependentUpon>ProductForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\SupplierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\SupplierForm.Designer.cs">
+      <DependentUpon>SupplierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\UserInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\UserInfoForm.Designer.cs">
+      <DependentUpon>UserInfoForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,13 +194,43 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ManagerForm.resx">
       <DependentUpon>ManagerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screen\CategoryForm.resx">
+      <DependentUpon>CategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\CustomerForm.resx">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screen\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Screen\ProductForm.resx">
+      <DependentUpon>ProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\StudentForm.resx">
+      <DependentUpon>StudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\SupplierForm.resx">
+      <DependentUpon>SupplierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\UserForm.resx">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\UserInfoForm.resx">
+      <DependentUpon>UserInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="EF\AppDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AppDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EF\AppDB.edmx.diagram">
+      <DependentUpon>AppDB.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -115,7 +246,41 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />
-    <Folder Include="EF\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EF\AppDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AppDB.Context.cs</LastGenOutput>
+      <DependentUpon>AppDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="EF\AppDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AppDB.edmx</DependentUpon>
+      <LastGenOutput>AppDB.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\Zoom_32x32.png" />
+    <None Include="Resources\upload-icon.png" />
+    <None Include="Resources\tag_32x32.png" />
+    <None Include="Resources\tag_16x16.png" />
+    <None Include="Resources\Refresh2_32x32.png" />
+    <None Include="Resources\Login-icon1.png" />
+    <None Include="Resources\Login-icon.png" />
+    <None Include="Resources\Login-icon %281%29.png" />
+    <None Include="Resources\insertfooter_32x32.png" />
+    <None Include="Resources\insertfooter_16x16.png" />
+    <None Include="Resources\groupheader_32x32.png" />
+    <None Include="Resources\groupheader_16x16.png" />
+    <None Include="Resources\groupbyresource_32x32.png" />
+    <None Include="Resources\groupbyresource_16x16.png" />
+    <None Include="Resources\delete_32x32.png" />
+    <None Include="Resources\delete_16x16.png" />
+    <None Include="Resources\Clear_32x32.png" />
+    <None Include="Resources\bg.jpg" />
+    <None Include="Resources\Apply_32x32.png" />
+    <None Include="Resources\Add_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

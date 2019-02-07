@@ -78,6 +78,27 @@ namespace FreshFood
                 case ScreenName.HOME:
                     form = new HomeForm();
                     break;
+                case ScreenName.CATEGORY:
+                    form = new CategoryForm();
+                    break;
+                case ScreenName.USER_INFO:
+                    form = new UserInfoForm();
+                    break;
+                case ScreenName.CUSTOMER:
+                    form = new CustomerForm();
+                    break;
+                case ScreenName.SUPPLIER:
+                    form = new SupplierForm();
+                    break;
+                case ScreenName.PRODUCT:
+                    form = new ProductForm();
+                    break;
+                case ScreenName.USER:
+                    form = new UserForm();
+                    break;
+                case ScreenName.STUDENT:
+                    form = new StudentForm();
+                    break;
                 default:
                     break;
             }
@@ -94,6 +115,46 @@ namespace FreshFood
         private void btnHome_ItemClick(object sender, ItemClickEventArgs e)
         {
             Trigger(ScreenName.HOME);
+        }
+
+        private void btnUserInfo_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Trigger(ScreenName.USER_INFO);
+        }
+
+        private void btnCustomer_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Trigger(ScreenName.CUSTOMER);
+        }
+
+        private void btnSupplier_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Trigger(ScreenName.SUPPLIER);
+        }
+
+        private void btnCategory_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Trigger(ScreenName.CATEGORY);
+        }
+
+        private void btnUser_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Trigger(ScreenName.USER);
+        }
+
+        private void btnStudent_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Trigger(ScreenName.STUDENT);
+        }
+
+        private void btnProduct_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Trigger(ScreenName.PRODUCT);
+        }
+
+        private void btnLogout_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.Close();
         }
     }
 }
