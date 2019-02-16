@@ -56,6 +56,7 @@
             this.lblClose.Size = new System.Drawing.Size(117, 19);
             this.lblClose.TabIndex = 74;
             this.lblClose.Text = "Đã có tài khoản?";
+            this.lblClose.Click += new System.EventHandler(this.lblClose_Click);
             this.lblClose.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblClose_MouseClick);
             // 
             // btnRegister
@@ -65,6 +66,7 @@
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.Color.White;
+            this.btnRegister.Image = global::FreshFood.Properties.Resources.Login_icon__1_;
             this.btnRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRegister.Location = new System.Drawing.Point(174, 359);
             this.btnRegister.Name = "btnRegister";
@@ -76,10 +78,11 @@
             // 
             // panel1
             // 
+            this.panel1.BackgroundImage = global::FreshFood.Properties.Resources.Freshfood_Logo;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(82, 27);
+            this.panel1.Location = new System.Drawing.Point(82, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 53);
+            this.panel1.Size = new System.Drawing.Size(200, 85);
             this.panel1.TabIndex = 72;
             // 
             // txtRePassword

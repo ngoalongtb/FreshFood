@@ -36,9 +36,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(109, 68);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 13);
+            this.label1.Size = new System.Drawing.Size(98, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Sinh viên thực hiện: Đạt";
+            this.label1.Text = "Sinh viên thực hiện";
             // 
             // StudentForm
             // 

@@ -28,41 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnUploadImage = new System.Windows.Forms.Button();
             this.dtpkNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.btnUpdateInfo = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtHinhAnh = new System.Windows.Forms.TextBox();
             this.txtReNewPass = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtNewPass = new System.Windows.Forms.TextBox();
             this.txtSoDienThoai = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtDisplayName = new System.Windows.Forms.TextBox();
             this.txtHoTen = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // btnUploadImage
-            // 
-            this.btnUploadImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
-            this.btnUploadImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnUploadImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUploadImage.ForeColor = System.Drawing.Color.White;
-            this.btnUploadImage.Location = new System.Drawing.Point(798, 286);
-            this.btnUploadImage.Name = "btnUploadImage";
-            this.btnUploadImage.Size = new System.Drawing.Size(29, 28);
-            this.btnUploadImage.TabIndex = 94;
-            this.btnUploadImage.UseVisualStyleBackColor = false;
             // 
             // dtpkNgaySinh
             // 
@@ -79,63 +62,37 @@
             this.btnUpdateInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdateInfo.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateInfo.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateInfo.Location = new System.Drawing.Point(497, 329);
+            this.btnUpdateInfo.Location = new System.Drawing.Point(407, 333);
             this.btnUpdateInfo.Name = "btnUpdateInfo";
             this.btnUpdateInfo.Size = new System.Drawing.Size(283, 42);
             this.btnUpdateInfo.TabIndex = 80;
             this.btnUpdateInfo.Text = "Cập nhật thông tin";
             this.btnUpdateInfo.UseVisualStyleBackColor = false;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(540, 290);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(71, 19);
-            this.label10.TabIndex = 85;
-            this.label10.Text = "Hình ảnh:";
+            this.btnUpdateInfo.Click += new System.EventHandler(this.btnUpdateInfo_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(182, 287);
+            this.label5.Location = new System.Drawing.Point(182, 243);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(119, 19);
             this.label5.TabIndex = 86;
             this.label5.Text = "Nhập lại mk mới:";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(540, 244);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 19);
-            this.label9.TabIndex = 87;
-            this.label9.Text = "Email:";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(182, 245);
+            this.label4.Location = new System.Drawing.Point(182, 201);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 19);
             this.label4.TabIndex = 88;
             this.label4.Text = "Mật khẩu mới:";
             // 
-            // txtHinhAnh
-            // 
-            this.txtHinhAnh.Location = new System.Drawing.Point(677, 287);
-            this.txtHinhAnh.Name = "txtHinhAnh";
-            this.txtHinhAnh.Size = new System.Drawing.Size(114, 27);
-            this.txtHinhAnh.TabIndex = 78;
-            // 
             // txtReNewPass
             // 
-            this.txtReNewPass.Location = new System.Drawing.Point(319, 284);
+            this.txtReNewPass.Location = new System.Drawing.Point(319, 240);
             this.txtReNewPass.Name = "txtReNewPass";
             this.txtReNewPass.Size = new System.Drawing.Size(150, 27);
             this.txtReNewPass.TabIndex = 79;
@@ -151,23 +108,6 @@
             this.label8.TabIndex = 90;
             this.label8.Text = "Số điện thoại:";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(181, 201);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 19);
-            this.label3.TabIndex = 89;
-            this.label3.Text = "Tên hiển thị:";
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(677, 241);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(150, 27);
-            this.txtEmail.TabIndex = 76;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -180,7 +120,7 @@
             // 
             // txtNewPass
             // 
-            this.txtNewPass.Location = new System.Drawing.Point(319, 242);
+            this.txtNewPass.Location = new System.Drawing.Point(319, 198);
             this.txtNewPass.Name = "txtNewPass";
             this.txtNewPass.Size = new System.Drawing.Size(150, 27);
             this.txtNewPass.TabIndex = 77;
@@ -212,13 +152,6 @@
             this.label6.Size = new System.Drawing.Size(58, 19);
             this.label6.TabIndex = 84;
             this.label6.Text = "Họ Tên:";
-            // 
-            // txtDisplayName
-            // 
-            this.txtDisplayName.Location = new System.Drawing.Point(318, 198);
-            this.txtDisplayName.Name = "txtDisplayName";
-            this.txtDisplayName.Size = new System.Drawing.Size(150, 27);
-            this.txtDisplayName.TabIndex = 74;
             // 
             // txtHoTen
             // 
@@ -254,28 +187,40 @@
             this.txtPassword.TabIndex = 73;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(677, 241);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(150, 27);
+            this.txtEmail.TabIndex = 76;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(540, 244);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(49, 19);
+            this.label9.TabIndex = 87;
+            this.label9.Text = "Email:";
+            // 
             // UserInfoForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1008, 480);
-            this.Controls.Add(this.btnUploadImage);
             this.Controls.Add(this.dtpkNgaySinh);
             this.Controls.Add(this.btnUpdateInfo);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtHinhAnh);
             this.Controls.Add(this.txtReNewPass);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtNewPass);
             this.Controls.Add(this.txtSoDienThoai);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtDisplayName);
             this.Controls.Add(this.txtHoTen);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtUsername);
@@ -289,28 +234,22 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnUploadImage;
         private System.Windows.Forms.DateTimePicker dtpkNgaySinh;
         private System.Windows.Forms.Button btnUpdateInfo;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtHinhAnh;
         private System.Windows.Forms.TextBox txtReNewPass;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtNewPass;
         private System.Windows.Forms.TextBox txtSoDienThoai;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtDisplayName;
         private System.Windows.Forms.TextBox txtHoTen;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label label9;
     }
 }

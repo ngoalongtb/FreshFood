@@ -40,12 +40,14 @@
             this.dtpkNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtUserType = new System.Windows.Forms.TextBox();
+            this.txtFullName = new System.Windows.Forms.TextBox();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtTen = new System.Windows.Forms.TextBox();
@@ -55,8 +57,6 @@
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtFullName = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).BeginInit();
             this.panel3.SuspendLayout();
@@ -123,6 +123,7 @@
             this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimKiem.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTimKiem.ForeColor = System.Drawing.Color.White;
+            this.btnTimKiem.Image = global::FreshFood.Properties.Resources.Zoom_32x32;
             this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTimKiem.Location = new System.Drawing.Point(533, 12);
             this.btnTimKiem.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -191,6 +192,17 @@
             this.label5.Text = "Sinh nhật :";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(22, 261);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 19);
+            this.label7.TabIndex = 57;
+            this.label7.Text = "Tên đầy đủ";
+            this.label7.Click += new System.EventHandler(this.label4_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -246,6 +258,14 @@
             this.txtUserType.Name = "txtUserType";
             this.txtUserType.Size = new System.Drawing.Size(150, 27);
             this.txtUserType.TabIndex = 55;
+            // 
+            // txtFullName
+            // 
+            this.txtFullName.Location = new System.Drawing.Point(159, 258);
+            this.txtFullName.Name = "txtFullName";
+            this.txtFullName.Size = new System.Drawing.Size(150, 27);
+            this.txtFullName.TabIndex = 55;
+            this.txtFullName.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // txtPhoneNumber
             // 
@@ -374,25 +394,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(349, 480);
             this.panel1.TabIndex = 6;
-            // 
-            // txtFullName
-            // 
-            this.txtFullName.Location = new System.Drawing.Point(159, 258);
-            this.txtFullName.Name = "txtFullName";
-            this.txtFullName.Size = new System.Drawing.Size(150, 27);
-            this.txtFullName.TabIndex = 55;
-            this.txtFullName.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(22, 261);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 19);
-            this.label7.TabIndex = 57;
-            this.label7.Text = "Tên đầy đủ";
-            this.label7.Click += new System.EventHandler(this.label4_Click);
             // 
             // UserForm
             // 

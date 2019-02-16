@@ -207,7 +207,6 @@
             // 
             // ribbonPageGroup2
             // 
-            this.ribbonPageGroup2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPageGroup2.ImageOptions.Image")));
             this.ribbonPageGroup2.ItemLinks.Add(this.btnUserInfo);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Thông Tin Cá Nhân";
@@ -274,6 +273,10 @@
             this.documentManager1.View = this.tabbedView1;
             this.documentManager1.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
             this.tabbedView1});
+            // 
+            // tabbedView1
+            // 
+            this.tabbedView1.RootContainer.Element = null;
             // 
             // defaultLookAndFeel1
             // 

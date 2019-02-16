@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.btnLogin = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // defaultLookAndFeel1
@@ -50,6 +50,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
+            this.btnLogin.Image = global::FreshFood.Properties.Resources.Login_icon__1_;
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogin.Location = new System.Drawing.Point(194, 177);
             this.btnLogin.Name = "btnLogin";
@@ -58,14 +59,6 @@
             this.btnLogin.Text = "        Đăng nhập";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(96, 19);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 53);
-            this.panel1.TabIndex = 57;
             // 
             // txtPassword
             // 
@@ -113,6 +106,15 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Chưa có tài khoản";
             this.linkLabel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.linkLabel1_MouseClick);
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::FreshFood.Properties.Resources.Freshfood_Logo;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Location = new System.Drawing.Point(85, -3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(211, 92);
+            this.panel1.TabIndex = 57;
             // 
             // LoginForm
             // 

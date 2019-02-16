@@ -123,6 +123,16 @@ namespace FreshFood.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Freshfood_Logo {
+            get {
+                object obj = ResourceManager.GetObject("Freshfood_Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap groupbyresource_16x16 {
             get {
                 object obj = ResourceManager.GetObject("groupbyresource_16x16", resourceCulture);

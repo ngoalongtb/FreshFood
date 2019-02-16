@@ -46,6 +46,10 @@ namespace FreshFood
                 User user = new User();
                 user.Password = txtPassword.Text;
                 user.Username = txtUsername.Text;
+                user.UserType = 0;
+                user.PhoneNumber = txtSoDienThoai.Text;
+                user.Fullname = txtHoTen.Text;
+                user.Email = txtEmail.Text;
 
                
                 db.Users.Add(user);
@@ -56,6 +60,11 @@ namespace FreshFood
             {
                 MessageBox.Show("Tài khoản đã tồn tại");
             }
+        }
+
+        private void lblClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
