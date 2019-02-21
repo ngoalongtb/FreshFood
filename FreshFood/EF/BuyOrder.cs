@@ -12,29 +12,21 @@ namespace FreshFood.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class BuyOrder
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
+        public BuyOrder()
         {
             this.BuyOrderDetails = new HashSet<BuyOrderDetail>();
-            this.SellOrderDetails = new HashSet<SellOrderDetail>();
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Image { get; set; }
-        public string Description { get; set; }
-        public Nullable<int> CategoryId { get; set; }
-        public Nullable<int> ExpirationDays { get; set; }
         public Nullable<int> SupplierId { get; set; }
-        public string Price { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
+        public string Description { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BuyOrderDetail> BuyOrderDetails { get; set; }
-        public virtual Category Category { get; set; }
         public virtual Supplier Supplier { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SellOrderDetail> SellOrderDetails { get; set; }
+        public virtual ICollection<BuyOrderDetail> BuyOrderDetails { get; set; }
     }
 }

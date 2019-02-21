@@ -72,6 +72,18 @@
     <Compile Include="AppCode\ScreenName.cs" />
     <Compile Include="AppCode\Session.cs" />
     <Compile Include="AppCode\Triggerable.cs" />
+    <Compile Include="Components\MenuItemUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\MenuItemUC.Designer.cs">
+      <DependentUpon>MenuItemUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ProductUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\ProductUC.Designer.cs">
+      <DependentUpon>ProductUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="EF\AppDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -86,6 +98,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AppDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EF\BuyOrder.cs">
+      <DependentUpon>AppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\BuyOrderDetail.cs">
+      <DependentUpon>AppDB.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Category.cs">
       <DependentUpon>AppDB.tt</DependentUpon>
@@ -103,9 +121,6 @@
       <DependentUpon>AppDB.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Supplier.cs">
-      <DependentUpon>AppDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\sysdiagram.cs">
       <DependentUpon>AppDB.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\User.cs">
@@ -179,6 +194,12 @@
     <Compile Include="Screen\UserInfoForm.Designer.cs">
       <DependentUpon>UserInfoForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Components\MenuItemUC.resx">
+      <DependentUpon>MenuItemUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ProductUC.resx">
+      <DependentUpon>ProductUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -258,6 +279,9 @@
       <DependentUpon>AppDB.edmx</DependentUpon>
       <LastGenOutput>AppDB.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\apple.jpg" />
+    <None Include="Resources\leaf-icon-16.png" />
+    <None Include="Resources\banner2.png" />
     <None Include="Resources\Freshfood_Logo.png" />
     <None Include="Resources\Zoom_32x32.png" />
     <None Include="Resources\upload-icon.png" />

@@ -85,7 +85,24 @@ namespace FreshFood.Screen
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                Product product = new Product();
+                product.Name = txtTen.Text;
+                product.Image = txtImage.Text;
+                product.Description = txtDescription.Text;
+                product.CategoryId = int.Parse(txtCategoryId.Text);
+                product.Price = txtPrice.Text;
+                //product.ExpirationDays = int.Parse(dtpkHanSuDung.Text);
+                db.Products.Add(product);
+                db.SaveChanges();
+                MessageBox.Show("Tạo mới thành công");
+                LoadDtgv();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Tạo mới không thành công. Vui lòng kiểm tra lại");
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -97,13 +114,13 @@ namespace FreshFood.Screen
                 product.Image = txtImage.Text;
                 product.Description = txtDescription.Text;
                 product.CategoryId = int.Parse(txtCategoryId.Text);
-                product.Price = double.Parse(txtPrice.Text);
+                product.Price = txtPrice.Text;
                 product.ExpirationDays = int.Parse(dtpkHanSuDung.Text);
                 db.SaveChanges();
                 MessageBox.Show("Cập nhật thành công");
                 LoadDtgv();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageBox.Show("Cập nhật không thành công. Vui lòng kiểm tra lại");
             }

@@ -18,7 +18,7 @@ namespace FreshFood.Screen
 
         public void LoadDtgv()
         {
-            bds.DataSource = db.Customers.Select(x => new { x.Username, x.PhoneNumber, x.Email, x.Description }).ToList();
+            bds.DataSource = db.Users.Select(x => new { x.Username, x.PhoneNumber, x.Email, x.Fullname, x.BirthDate }).ToList();
         }
         public void ChangeHeader()
         {
