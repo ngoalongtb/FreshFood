@@ -72,6 +72,19 @@
     <Compile Include="AppCode\ScreenName.cs" />
     <Compile Include="AppCode\Session.cs" />
     <Compile Include="AppCode\Triggerable.cs" />
+    <Compile Include="AppCode\Utils.cs" />
+    <Compile Include="Components\CartHeaderUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CartHeaderUC.Designer.cs">
+      <DependentUpon>CartHeaderUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\CartRowUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\CartRowUC.Designer.cs">
+      <DependentUpon>CartRowUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\MenuItemUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,6 +136,9 @@
     <Compile Include="EF\Supplier.cs">
       <DependentUpon>AppDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="EF\sysdiagram.cs">
+      <DependentUpon>AppDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\User.cs">
       <DependentUpon>AppDB.tt</DependentUpon>
     </Compile>
@@ -145,6 +161,12 @@
     </Compile>
     <Compile Include="ManagerForm.Designer.cs">
       <DependentUpon>ManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screen\CartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screen\CartForm.Designer.cs">
+      <DependentUpon>CartForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Screen\CategoryForm.cs">
       <SubType>Form</SubType>
@@ -194,6 +216,12 @@
     <Compile Include="Screen\UserInfoForm.Designer.cs">
       <DependentUpon>UserInfoForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Components\CartHeaderUC.resx">
+      <DependentUpon>CartHeaderUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\CartRowUC.resx">
+      <DependentUpon>CartRowUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\MenuItemUC.resx">
       <DependentUpon>MenuItemUC.cs</DependentUpon>
     </EmbeddedResource>
@@ -219,6 +247,9 @@
     </Compile>
     <EmbeddedResource Include="ManagerForm.resx">
       <DependentUpon>ManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\CartForm.resx">
+      <DependentUpon>CartForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screen\CategoryForm.resx">
       <DependentUpon>CategoryForm.cs</DependentUpon>

@@ -26,6 +26,7 @@ namespace FreshFood.EF
         public string Email { get; set; }
         public string Description { get; set; }
         public string Username { get; set; }
+        public string Address { get; set; }
     
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

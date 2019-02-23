@@ -47,11 +47,18 @@ namespace FreshFood
                 user.Password = txtPassword.Text;
                 user.Username = txtUsername.Text;
                 user.UserType = 0;
+
+                Customer customer = new Customer();
+                customer.Name = txtHoTen.Text;
+                customer.PhoneNumber = txtSoDienThoai.Text;
+                customer.Email = txtEmail.Text;
+
                 user.PhoneNumber = txtSoDienThoai.Text;
                 user.Fullname = txtHoTen.Text;
                 user.Email = txtEmail.Text;
 
-               
+                user.Customers.Add(customer);
+
                 db.Users.Add(user);
                 db.SaveChanges();
                 MessageBox.Show("Đăng ký thành công");

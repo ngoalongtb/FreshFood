@@ -41,6 +41,7 @@
           <Property Name="Email" Type="nvarchar" MaxLength="255" />
           <Property Name="Description" Type="nvarchar" MaxLength="1000" />
           <Property Name="Username" Type="nvarchar" MaxLength="255" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -48,12 +49,12 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="255" />
-          <Property Name="Image" Type="nvarchar" MaxLength="255" />
           <Property Name="Description" Type="nvarchar" MaxLength="1000" />
           <Property Name="CategoryId" Type="int" />
           <Property Name="ExpirationDays" Type="int" />
           <Property Name="SupplierId" Type="int" />
           <Property Name="Price" Type="nvarchar" MaxLength="50" />
+          <Property Name="Image" Type="image" />
         </EntityType>
         <EntityType Name="SellOrder">
           <Key>
@@ -65,12 +66,14 @@
           <Property Name="Description" Type="nvarchar" MaxLength="1000" />
           <Property Name="Employee" Type="nvarchar" MaxLength="255" />
           <Property Name="Status" Type="nvarchar" MaxLength="255" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="SellOrderDetail">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductId" Type="int" />
           <Property Name="Price" Type="float" />
           <Property Name="Quantity" Type="int" />
@@ -85,6 +88,16 @@
           <Property Name="PhoneNumber" Type="nvarchar" MaxLength="25" />
           <Property Name="Email" Type="nvarchar" MaxLength="255" />
           <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -241,6 +254,7 @@
           <EntitySet Name="SellOrder" EntityType="Self.SellOrder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SellOrderDetail" EntityType="Self.SellOrderDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_BuyOrder_Supplier" Association="Self.FK_BuyOrder_Supplier">
             <End Role="Supplier" EntitySet="Supplier" />
@@ -296,6 +310,7 @@
           <EntitySet Name="SellOrders" EntityType="FreshFoodModel.SellOrder" />
           <EntitySet Name="SellOrderDetails" EntityType="FreshFoodModel.SellOrderDetail" />
           <EntitySet Name="Suppliers" EntityType="FreshFoodModel.Supplier" />
+          <EntitySet Name="sysdiagrams" EntityType="FreshFoodModel.sysdiagram" />
           <EntitySet Name="Users" EntityType="FreshFoodModel.User" />
           <AssociationSet Name="FK_BuyOrder_Supplier" Association="FreshFoodModel.FK_BuyOrder_Supplier">
             <End Role="Supplier" EntitySet="Suppliers" />
@@ -379,6 +394,7 @@
           <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="Username" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="User" Relationship="FreshFoodModel.FK_Customer_User" FromRole="Customer" ToRole="User" />
           <NavigationProperty Name="SellOrders" Relationship="FreshFoodModel.FK_SellOrder_Customer" FromRole="Customer" ToRole="SellOrder" />
         </EntityType>
@@ -388,12 +404,12 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="CategoryId" Type="Int32" />
           <Property Name="ExpirationDays" Type="Int32" />
           <Property Name="SupplierId" Type="Int32" />
           <Property Name="Price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="BuyOrderDetails" Relationship="FreshFoodModel.FK_BuyOrderDetail_Product" FromRole="Product" ToRole="BuyOrderDetail" />
           <NavigationProperty Name="Category" Relationship="FreshFoodModel.FK_Product_Category" FromRole="Product" ToRole="Category" />
           <NavigationProperty Name="Supplier" Relationship="FreshFoodModel.FK_Product_Supplier" FromRole="Product" ToRole="Supplier" />
@@ -409,6 +425,8 @@
           <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="Employee" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Customer" Relationship="FreshFoodModel.FK_SellOrder_Customer" FromRole="SellOrder" ToRole="Customer" />
           <NavigationProperty Name="User" Relationship="FreshFoodModel.FK_SellOrder_User" FromRole="SellOrder" ToRole="User" />
           <NavigationProperty Name="SellOrderDetails" Relationship="FreshFoodModel.FK_SellOrderDetail_SellOrder" FromRole="SellOrder" ToRole="SellOrderDetail" />
@@ -417,7 +435,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductId" Type="Int32" />
           <Property Name="Price" Type="Double" />
           <Property Name="Quantity" Type="Int32" />
@@ -436,6 +454,16 @@
           <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="BuyOrders" Relationship="FreshFoodModel.FK_BuyOrder_Supplier" FromRole="Supplier" ToRole="BuyOrder" />
           <NavigationProperty Name="Products" Relationship="FreshFoodModel.FK_Product_Supplier" FromRole="Supplier" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -623,6 +651,7 @@
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="FreshFoodModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -635,12 +664,12 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="FreshFoodModel.Product">
               <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
                 <ScalarProperty Name="ExpirationDays" ColumnName="ExpirationDays" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
@@ -649,6 +678,8 @@
           <EntitySetMapping Name="SellOrders">
             <EntityTypeMapping TypeName="FreshFoodModel.SellOrder">
               <MappingFragment StoreEntitySet="SellOrder">
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Employee" ColumnName="Employee" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -677,6 +708,17 @@
                 <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="FreshFoodModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

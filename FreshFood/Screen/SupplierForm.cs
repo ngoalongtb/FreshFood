@@ -127,6 +127,9 @@ namespace FreshFood.Screen
             LoadDtgv();
         }
 
-        
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            bds.DataSource = db.Suppliers.Where(x => x.Name.Contains(txtTimKiem.Text) || x.Id.ToString().Contains(txtTimKiem.Text)).Select(x => new { x.Id, x.Name, x.PhoneNumber, x.Email, x.Description }).ToList();
+        }
     }
 }

@@ -33,8 +33,12 @@ namespace FreshFood.Screen
         {
             txtMa.DataBindings.Add("Text", dtgv.DataSource, "Id", true, DataSourceUpdateMode.Never);
             txtTenKhachHang.DataBindings.Add("Text", dtgv.DataSource, "Name", true, DataSourceUpdateMode.Never);
-        }
+            txtPhoneNumber.DataBindings.Add("Text", dtgv.DataSource, "PhoneNumber", true, DataSourceUpdateMode.Never);
+            txtemail.DataBindings.Add("Text", dtgv.DataSource, "Email", true, DataSourceUpdateMode.Never);
+            txtUser.DataBindings.Add("Text", dtgv.DataSource, "Username", true, DataSourceUpdateMode.Never);
+            txtDescription.DataBindings.Add("Text", dtgv.DataSource, "Description", true, DataSourceUpdateMode.Never);
 
+        }
 
         private void CustomerForm_Load(object sender, EventArgs e)
         {
@@ -55,8 +59,11 @@ namespace FreshFood.Screen
             customer.PhoneNumber = txtPhoneNumber.Text;
             customer.Email = txtemail.Text;
             customer.Description = txtDescription.Text;
-            //customer.Username = txtUserName.Text;
 
+            User user = new User();
+            user.Username = txtUser.Text;
+            user.Password = "12345";
+            customer.User = user;
             try
             {
                 db.Customers.Add(customer);
@@ -117,6 +124,11 @@ namespace FreshFood.Screen
         private void btnXem_Click(object sender, EventArgs e)
         {
             LoadDtgv();
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            bds.DataSource = db.Customers.Where(x => x.Name.Contains(txtTimKiem.Text) || x.Id.ToString().Contains(txtTimKiem.Text)).Select(x => new { x.Id, x.Name, x.PhoneNumber, x.Email, x.Description, x.Username }).ToList();
         }
     }
 }

@@ -33,6 +33,7 @@ namespace FreshFood.EF
         public virtual DbSet<SellOrder> SellOrders { get; set; }
         public virtual DbSet<SellOrderDetail> SellOrderDetails { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

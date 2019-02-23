@@ -18,22 +18,25 @@ namespace FreshFood.Screen
 
         public void LoadDtgv()
         {
-            bds.DataSource = db.Users.Select(x => new { x.Username, x.PhoneNumber, x.Email, x.Fullname, x.BirthDate }).ToList();
+            bds.DataSource = db.Users.Select(x => new { x.Username, x.PhoneNumber, x.Email, x.Fullname, x.BirthDate, UserType = x.UserType == 0? "Admin": "Customer" }).ToList();
         }
         public void ChangeHeader()
         {
             dtgv.Columns["Username"].HeaderText = "Tên người dùng";
-            //dtgv.Columns["UserType"].HeaderText = "Loại tài khoản";
+            dtgv.Columns["UserType"].HeaderText = "Loại tài khoản";
             dtgv.Columns["Fullname"].HeaderText = "Tên đầy đủ";
             dtgv.Columns["BirthDate"].HeaderText = "Ngày sinh";
             dtgv.Columns["Email"].HeaderText = "Địa chỉ email";
             dtgv.Columns["PhoneNumber"].HeaderText = "Số điện thoại";
-
         }
         public void LoadDataBinding()
         {
             txtTen.DataBindings.Add("Text", dtgv.DataSource, "Username", true, DataSourceUpdateMode.Never);
-            txtPassword.DataBindings.Add("Text", dtgv.DataSource, "password", true, DataSourceUpdateMode.Never);
+            cbxUserType.DataBindings.Add("Text", dtgv.DataSource, "UserType", true, DataSourceUpdateMode.Never);
+            txtFullName.DataBindings.Add("Text", dtgv.DataSource, "Fullname", true, DataSourceUpdateMode.Never);
+            dtpkNgaySinh.DataBindings.Add("Value", dtgv.DataSource, "BirthDate", true, DataSourceUpdateMode.Never);
+            txtEmail.DataBindings.Add("Text", dtgv.DataSource, "Email", true, DataSourceUpdateMode.Never);
+            txtPhoneNumber.DataBindings.Add("Text", dtgv.DataSource, "PhoneNumber", true, DataSourceUpdateMode.Never);
         }
         public UserForm()
         {
@@ -48,56 +51,18 @@ namespace FreshFood.Screen
             LoadDataBinding();
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpkNgaySinh_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnThem_Click(object sender, EventArgs e)
         {
-            User user = db.Users.Find(int.Parse(txtTen.Text));
-            user.Username = txtTen.Text;
-            user.Password = txtPassword.Text;
-            user.UserType = int.Parse(txtUserType.Text);
-            user.Fullname = txtFullName.Text;
-            user.BirthDate = dtpkNgaySinh.Value;
-            user.Email = txtEmail.Text;
-            user.PhoneNumber = txtPhoneNumber.Text;
-            db.SaveChanges();
-            //customer.Username = txtUserName.Text;
-
             try
             {
+                User user = new User();
+                user.Username = txtTen.Text;
+                user.Password = txtPassword.Text;
+                user.UserType = cbxUserType.Text == "Admin" ? 1 : 0;
+                user.Fullname = txtFullName.Text;
+                user.BirthDate = dtpkNgaySinh.Value;
+                user.Email = txtEmail.Text;
+                user.PhoneNumber = txtPhoneNumber.Text;
                 db.Users.Add(user);
                 db.SaveChanges();
                 MessageBox.Show("Thêm mới thành công");
@@ -113,10 +78,9 @@ namespace FreshFood.Screen
         {
             try
             {
-                User user = db.Users.Find(int.Parse(txtTen.Text));
-                user.Username = txtTen.Text;
+                User user = db.Users.Find(txtTen.Text);
                 user.Password = txtPassword.Text;
-                user.UserType = int.Parse(txtUserType.Text);
+                user.UserType = cbxUserType.Text == "Admin" ? 1 : 0;
                 user.Fullname = txtFullName.Text;
                 user.BirthDate = dtpkNgaySinh.Value;
                 user.Email = txtEmail.Text;
@@ -139,13 +103,11 @@ namespace FreshFood.Screen
                          MessageBoxButtons.YesNo);
 
             if (confirmResult == DialogResult.Yes)
-            {
-
-
+            { 
                 try
                 {
-                    Customer customer = db.Customers.Find(int.Parse(txtTen.Text));
-                    db.Customers.Remove(customer);
+                    User user = db.Users.Find(txtTen.Text);
+                    db.Users.Remove(user);
                     db.SaveChanges();
                     MessageBox.Show("Xóa thành công");
                     LoadDtgv();
@@ -162,6 +124,11 @@ namespace FreshFood.Screen
         {
             LoadDtgv();
 
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            bds.DataSource = db.Users.Where(x => x.Username.Contains(txtTimKiem.Text) || x.Fullname.ToString().Contains(txtTimKiem.Text)).Select(x => new { x.Username, x.PhoneNumber, x.Email, x.Fullname, x.BirthDate, UserType = x.UserType == 0 ? "Admin" : "Customer" }).ToList();
         }
     }
 }

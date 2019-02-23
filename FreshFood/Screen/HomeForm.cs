@@ -29,23 +29,24 @@ namespace FreshFood.Screen
                 MenuItemUC menuItem = new MenuItemUC(category);
                 menuItem.Width = pnMenu.Width;
                 menuItem.Height = 30;
-                menuItem.Tag = category;
                 menuItem.Show();
-
+                
                 menuItem.Click += MenuItem_Click;
+                menuItem.lbl.MouseClick += MenuItem_Click;
+                menuItem.pnImage.MouseClick += MenuItem_Click;
                 pnMenu.Controls.Add(menuItem);
             }
         }
 
         private void MenuItem_Click(object sender, EventArgs e)
         {
-            MenuItemUC menuItem = sender as MenuItemUC;
-            Category category = (Category)menuItem.Tag;
+            Control control = sender as Control;
+            Category category = (Category)control.Tag;
             pnProducts.Controls.Clear();
 
             foreach (var item in category.Products.ToList())
             {
-                ProductUC productUC = new ProductUC();
+                ProductUC productUC = new ProductUC(item);
                 lblCategory.Text = category.Name;
                 productUC.Show();
                 pnProducts.Controls.Add(productUC);
@@ -58,7 +59,7 @@ namespace FreshFood.Screen
             lblCategory.Text = "Tất cả";
             foreach (var item in appDB.Products.ToList())
             {
-                ProductUC productUC = new ProductUC();
+                ProductUC productUC = new ProductUC(item);
                 productUC.Show();
                 pnProducts.Controls.Add(productUC);
             }

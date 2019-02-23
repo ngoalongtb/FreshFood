@@ -99,6 +99,9 @@ namespace FreshFood
                 case ScreenName.STUDENT:
                     form = new StudentForm();
                     break;
+                case ScreenName.CART:
+                    form = new CartForm();
+                    break;
                 default:
                     break;
             }
@@ -155,6 +158,11 @@ namespace FreshFood
         private void btnLogout_ItemClick(object sender, ItemClickEventArgs e)
         {
             this.Close();
+        }
+
+        private void btnCart_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Trigger(ScreenName.CART);
         }
     }
 }

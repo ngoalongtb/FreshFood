@@ -23,12 +23,12 @@ namespace FreshFood.EF
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Image { get; set; }
         public string Description { get; set; }
         public Nullable<int> CategoryId { get; set; }
         public Nullable<int> ExpirationDays { get; set; }
         public Nullable<int> SupplierId { get; set; }
         public string Price { get; set; }
+        public byte[] Image { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BuyOrderDetail> BuyOrderDetails { get; set; }

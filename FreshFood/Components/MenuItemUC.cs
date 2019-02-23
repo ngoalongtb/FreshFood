@@ -17,6 +17,7 @@ namespace FreshFood.Components
         public MenuItemUC(Category category)
         {
             InitializeComponent();
+            this.Category = category;
             lbl.Text = category.Name;
         }
 
@@ -26,6 +27,9 @@ namespace FreshFood.Components
             }
             set
             {
+                this.Tag = value;
+                this.lbl.Tag = value;
+                this.pnImage.Tag = value;
                 category = value;
             }
         }

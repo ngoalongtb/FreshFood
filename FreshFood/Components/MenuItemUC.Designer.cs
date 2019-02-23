@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lbl = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnImage = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // lbl
@@ -44,22 +44,22 @@
             this.lbl.Text = "label1";
             this.lbl.MouseHover += new System.EventHandler(this.MenuItemUC_MouseHover);
             // 
-            // panel1
+            // pnImage
             // 
-            this.panel1.BackgroundImage = global::FreshFood.Properties.Resources.leaf_icon_16;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(3, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(24, 27);
-            this.panel1.TabIndex = 0;
-            this.panel1.MouseHover += new System.EventHandler(this.MenuItemUC_MouseHover);
+            this.pnImage.BackgroundImage = global::FreshFood.Properties.Resources.leaf_icon_16;
+            this.pnImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnImage.Location = new System.Drawing.Point(3, 1);
+            this.pnImage.Name = "pnImage";
+            this.pnImage.Size = new System.Drawing.Size(24, 27);
+            this.pnImage.TabIndex = 0;
+            this.pnImage.MouseHover += new System.EventHandler(this.MenuItemUC_MouseHover);
             // 
             // MenuItemUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lbl);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnImage);
             this.Name = "MenuItemUC";
             this.Size = new System.Drawing.Size(193, 30);
             this.MouseLeave += new System.EventHandler(this.MenuItemUC_MouseLeave);
@@ -71,7 +71,7 @@
 
         #endregion
 
-        public System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Panel pnImage;
         public System.Windows.Forms.Label lbl;
     }
 }

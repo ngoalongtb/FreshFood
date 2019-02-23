@@ -8,11 +8,12 @@
         <EntityTypeShape EntityType="FreshFoodModel.BuyOrder" Width="1.5" PointX="3" PointY="7.5" />
         <EntityTypeShape EntityType="FreshFoodModel.BuyOrderDetail" Width="1.5" PointX="5.25" PointY="5.125" />
         <EntityTypeShape EntityType="FreshFoodModel.Category" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="FreshFoodModel.Customer" Width="1.5" PointX="0.75" PointY="11.25" />
+        <EntityTypeShape EntityType="FreshFoodModel.Customer" Width="1.5" PointX="0.75" PointY="11.125" />
         <EntityTypeShape EntityType="FreshFoodModel.Product" Width="1.5" PointX="3" PointY="2.875" />
-        <EntityTypeShape EntityType="FreshFoodModel.SellOrder" Width="1.5" PointX="3" PointY="11.125" />
+        <EntityTypeShape EntityType="FreshFoodModel.SellOrder" Width="1.5" PointX="3" PointY="11" />
         <EntityTypeShape EntityType="FreshFoodModel.SellOrderDetail" Width="1.5" PointX="5.25" PointY="1.375" />
         <EntityTypeShape EntityType="FreshFoodModel.Supplier" Width="1.5" PointX="0.75" PointY="3.375" />
+        <EntityTypeShape EntityType="FreshFoodModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.875" />
         <EntityTypeShape EntityType="FreshFoodModel.User" Width="1.5" PointX="1.5" PointY="15.125" />
         <AssociationConnector Association="FreshFoodModel.FK_BuyOrder_Supplier" />
         <AssociationConnector Association="FreshFoodModel.FK_BuyOrderDetail_BuyOrder" />
