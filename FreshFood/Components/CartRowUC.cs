@@ -38,7 +38,7 @@ namespace FreshFood.Components
                 value.Price = int.Parse(Regex.Replace(value.Product.Price, "[^0-9]", ""));
                 lblTotalPrice.Text = value.Price * value.Quantity + "";
                 txtQuantity.Value = value.Quantity.Value;
-                if (value.Product.Image == null)
+                if (value.Product.Image != null)
                 {
                     pnImage.BackgroundImage = Utils.ConvertBinaryToImage(value.Product.Image);
                 }

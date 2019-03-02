@@ -25,6 +25,7 @@ namespace FreshFood.Screen
             LoadMore();
             ChangeHeader();
             LoadDataBinding();
+            HideColumn();
         }
         public void LoadDtgv()
         {
@@ -65,6 +66,7 @@ namespace FreshFood.Screen
         public void HideColumn()
         {
             dtgv.Columns["x"].Visible = false;
+            dtgv.Columns["Image"].Visible = false;
         }
 
         public ProductForm()
@@ -166,6 +168,12 @@ namespace FreshFood.Screen
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             bds.DataSource = db.Products.Where(x => x.Name.Contains(txtTimKiem.Text) || x.Id.ToString().Contains(txtTimKiem.Text)).Select(x => new { x.Id, x.Name, x.Image, x.Description, CategoryName = x.Category.Name, x.Price, x.ExpirationDays, SupplierName = x.Supplier.Name, x }).ToList();
+        }
+
+        private void txtMa_TextChanged(object sender, EventArgs e)
+        {
+            Product product = dtgv.SelectedRows[0].Cells["x"].Value as Product;
+            pnImage.BackgroundImage = FreshFood.AppCode.Utils.ConvertBinaryToImage(product.Image);
         }
     }
 }

@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pnCart = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblTotalPrice = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnOrder = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtSoDienThoai = new System.Windows.Forms.TextBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
+            this.txtSoDienThoai = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnOrder = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblTotalPrice = new System.Windows.Forms.Label();
+            this.pnCart = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,38 +56,39 @@
             this.panel1.Size = new System.Drawing.Size(1008, 497);
             this.panel1.TabIndex = 0;
             // 
-            // pnCart
+            // txtDiaChi
             // 
-            this.pnCart.AutoScroll = true;
-            this.pnCart.BackColor = System.Drawing.Color.White;
-            this.pnCart.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.pnCart.Location = new System.Drawing.Point(7, 74);
-            this.pnCart.Margin = new System.Windows.Forms.Padding(0);
-            this.pnCart.Name = "pnCart";
-            this.pnCart.Size = new System.Drawing.Size(990, 356);
-            this.pnCart.TabIndex = 1;
+            this.txtDiaChi.Location = new System.Drawing.Point(669, 36);
+            this.txtDiaChi.Name = "txtDiaChi";
+            this.txtDiaChi.Size = new System.Drawing.Size(327, 27);
+            this.txtDiaChi.TabIndex = 5;
             // 
-            // lblTotalPrice
+            // txtSoDienThoai
             // 
-            this.lblTotalPrice.AutoSize = true;
-            this.lblTotalPrice.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
-            this.lblTotalPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
-            this.lblTotalPrice.Location = new System.Drawing.Point(747, 444);
-            this.lblTotalPrice.Name = "lblTotalPrice";
-            this.lblTotalPrice.Size = new System.Drawing.Size(97, 27);
-            this.lblTotalPrice.TabIndex = 2;
-            this.lblTotalPrice.Text = "100.000đ";
+            this.txtSoDienThoai.Location = new System.Drawing.Point(669, 6);
+            this.txtSoDienThoai.Name = "txtSoDienThoai";
+            this.txtSoDienThoai.Size = new System.Drawing.Size(327, 27);
+            this.txtSoDienThoai.TabIndex = 5;
             // 
-            // label7
+            // label2
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
-            this.label7.Location = new System.Drawing.Point(624, 443);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(117, 27);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Thành tiền:";
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            this.label2.Location = new System.Drawing.Point(589, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 19);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Địa chỉ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            this.label1.Location = new System.Drawing.Point(550, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 19);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Số điện thoại";
             // 
             // btnOrder
             // 
@@ -103,39 +104,40 @@
             this.btnOrder.UseVisualStyleBackColor = false;
             this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
-            // label1
+            // label7
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.label1.Location = new System.Drawing.Point(550, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 19);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Số điện thoại";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            this.label7.Location = new System.Drawing.Point(624, 443);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(117, 27);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Thành tiền:";
             // 
-            // label2
+            // lblTotalPrice
             // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.label2.Location = new System.Drawing.Point(589, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 19);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Địa chỉ";
+            this.lblTotalPrice.AutoSize = true;
+            this.lblTotalPrice.Font = new System.Drawing.Font("Calibri", 16F, System.Drawing.FontStyle.Bold);
+            this.lblTotalPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            this.lblTotalPrice.Location = new System.Drawing.Point(747, 444);
+            this.lblTotalPrice.Name = "lblTotalPrice";
+            this.lblTotalPrice.Size = new System.Drawing.Size(97, 27);
+            this.lblTotalPrice.TabIndex = 2;
+            this.lblTotalPrice.Text = "100.000đ";
             // 
-            // txtSoDienThoai
+            // pnCart
             // 
-            this.txtSoDienThoai.Location = new System.Drawing.Point(669, 6);
-            this.txtSoDienThoai.Name = "txtSoDienThoai";
-            this.txtSoDienThoai.Size = new System.Drawing.Size(327, 27);
-            this.txtSoDienThoai.TabIndex = 5;
-            // 
-            // txtDiaChi
-            // 
-            this.txtDiaChi.Location = new System.Drawing.Point(669, 36);
-            this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(327, 27);
-            this.txtDiaChi.TabIndex = 5;
+            this.pnCart.AutoScroll = true;
+            this.pnCart.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnCart.BackColor = System.Drawing.Color.White;
+            this.pnCart.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.pnCart.Location = new System.Drawing.Point(7, 74);
+            this.pnCart.Margin = new System.Windows.Forms.Padding(0);
+            this.pnCart.Name = "pnCart";
+            this.pnCart.Size = new System.Drawing.Size(990, 356);
+            this.pnCart.TabIndex = 1;
+            this.pnCart.WrapContents = false;
             // 
             // CartForm
             // 

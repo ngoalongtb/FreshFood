@@ -34,7 +34,7 @@ namespace FreshFood.Components
             set {
                 lblName.Text = value.Name;
                 lblPrice.Text = value.Price;
-                if(value.Image == null)
+                if (value.Image != null)
                 {
                     pnImage.BackgroundImage = Utils.ConvertBinaryToImage(value.Image);
                 }
