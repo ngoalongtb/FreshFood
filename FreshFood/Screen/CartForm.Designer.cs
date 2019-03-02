@@ -146,7 +146,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Calibri", 12F);
             this.Name = "CartForm";
-            this.Text = "CartForm";
+            this.Text = "Giỏ hàng";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

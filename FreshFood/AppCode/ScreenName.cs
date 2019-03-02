@@ -17,5 +17,6 @@ namespace FreshFood.AppCode
         public const string USER = "User";
         public const string STUDENT = "Student";
         public const string CART = "Cart";
+        public const string ORDER = "Order";
     }
 }

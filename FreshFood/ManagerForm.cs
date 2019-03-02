@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraBars;
 using FreshFood.AppCode;
 using FreshFood.Screen;
+using FreshFood.EF;
 
 namespace FreshFood
 {
@@ -20,48 +21,13 @@ namespace FreshFood
             InitializeComponent();
             Trigger(ScreenName.HOME);
             AppState.ManagerForm = this;
-            //string tenLoaiTaiKhoan = Session.LoginAccount.LoaiTaiKhoan.TenLoaiTaiKhoan;
-            //if (tenLoaiTaiKhoan.Equals(Commons.Manager, StringComparison.CurrentCultureIgnoreCase))
-            //{
-            //    //btnDangKy.Enabled = false;
-            //    //btnTaiKhoan.Enabled = false;
-            //    //btnLoaiTaiKhoan.Enabled = false;
-            //    //btnDangKyOnline.Enabled = false;
-            //}
-            //if (tenLoaiTaiKhoan.Equals(Commons.Admin, StringComparison.CurrentCultureIgnoreCase))
-            //{
-            //    btnDangKy.Enabled = false;
-            //    btnHopDong.Enabled = false;
-            //    btnDanhMuc.Enabled = false;
-            //    btnDichVu.Enabled = false;
-            //    btnThongKeTheoDichVu.Enabled = false;
-            //    btnThongKeTheoKhachHang.Enabled = false;
-            //    btnThongKeTheoNhanVien.Enabled = false;
-            //    btnDangKyOnline.Enabled = false;
-            //}
-            //if (tenLoaiTaiKhoan.Equals(Commons.Staff, StringComparison.CurrentCultureIgnoreCase))
-            //{
-            //    //btnTaiKhoan.Enabled = false;
-            //    btnDanhMuc.Enabled = false;
-            //    btnDichVu.Enabled = false;
-            //    btnLoaiTaiKhoan.Enabled = false;
-            //    btnThongKeTheoDichVu.Enabled = false;
-            //    btnThongKeTheoKhachHang.Enabled = false;
-            //    btnThongKeTheoNhanVien.Enabled = false;
-            //    btnDangKyOnline.Enabled = false;
-            //}
-            //if (tenLoaiTaiKhoan.Equals(Commons.Customer, StringComparison.CurrentCultureIgnoreCase))
-            //{
-            //    btnTaiKhoan.Enabled = false;
-            //    btnDanhMuc.Enabled = false;
-            //    //btnDichVu.Enabled = false;
-            //    btnDangKy.Enabled = false;
-            //    btnHopDong.Enabled = false;
-            //    btnLoaiTaiKhoan.Enabled = false;
-            //    btnThongKeTheoDichVu.Enabled = false;
-            //    btnThongKeTheoKhachHang.Enabled = false;
-            //    btnThongKeTheoNhanVien.Enabled = false;
-            //}
+
+            User user = Session.LoginAccount;
+            if(user.UserType != 1)
+            {
+                ribbonPageAdmin.Visible = false;
+                ribbonPageManager.Visible = false;
+            }
         }
 
         public void Trigger()
@@ -101,6 +67,9 @@ namespace FreshFood
                     break;
                 case ScreenName.CART:
                     form = new CartForm();
+                    break;
+                case ScreenName.ORDER:
+                    form = new OrderForm();
                     break;
                 default:
                     break;
@@ -163,6 +132,11 @@ namespace FreshFood
         private void btnCart_ItemClick(object sender, ItemClickEventArgs e)
         {
             Trigger(ScreenName.CART);
+        }
+
+        private void btnOrder_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Trigger(ScreenName.ORDER);
         }
     }
 }
