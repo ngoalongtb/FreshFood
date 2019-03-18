@@ -33,7 +33,6 @@
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnHome = new DevExpress.XtraBars.BarButtonItem();
             this.btnUserInfo = new DevExpress.XtraBars.BarButtonItem();
-            this.btnCustomer = new DevExpress.XtraBars.BarButtonItem();
             this.btnSupplier = new DevExpress.XtraBars.BarButtonItem();
             this.btnCategory = new DevExpress.XtraBars.BarButtonItem();
             this.btnProduct = new DevExpress.XtraBars.BarButtonItem();
@@ -72,7 +71,6 @@
             this.ribbon.ExpandCollapseItem,
             this.btnHome,
             this.btnUserInfo,
-            this.btnCustomer,
             this.btnSupplier,
             this.btnCategory,
             this.btnProduct,
@@ -114,17 +112,6 @@
             this.btnUserInfo.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             this.btnUserInfo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUserInfo_ItemClick);
-            // 
-            // btnCustomer
-            // 
-            this.btnCustomer.Caption = "Khách hàng";
-            this.btnCustomer.Id = 3;
-            this.btnCustomer.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCustomer.ImageOptions.Image")));
-            this.btnCustomer.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnCustomer.ImageOptions.LargeImage")));
-            this.btnCustomer.Name = "btnCustomer";
-            this.btnCustomer.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.btnCustomer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCustomer_ItemClick);
             // 
             // btnSupplier
             // 
@@ -259,7 +246,6 @@
             // 
             // ribbonPageGroup6
             // 
-            this.ribbonPageGroup6.ItemLinks.Add(this.btnCustomer);
             this.ribbonPageGroup6.ItemLinks.Add(this.btnSupplier);
             this.ribbonPageGroup6.ItemLinks.Add(this.btnCategory);
             this.ribbonPageGroup6.ItemLinks.Add(this.btnProduct);
@@ -346,6 +332,7 @@
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Quản lý cửa hàng bán thực phẩm sạch";
+            this.Load += new System.EventHandler(this.ManagerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
@@ -372,7 +359,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage5;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.BarButtonItem btnUserInfo;
-        private DevExpress.XtraBars.BarButtonItem btnCustomer;
         private DevExpress.XtraBars.BarButtonItem btnSupplier;
         private DevExpress.XtraBars.BarButtonItem btnCategory;
         private DevExpress.XtraBars.BarButtonItem btnProduct;

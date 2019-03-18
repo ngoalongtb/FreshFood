@@ -21,15 +21,14 @@ namespace FreshFood.EF
         }
     
         public int Id { get; set; }
-        public Nullable<int> CustomerId { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public string Description { get; set; }
         public string Employee { get; set; }
         public string Status { get; set; }
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
+        public string Fullname { get; set; }
     
-        public virtual Customer Customer { get; set; }
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SellOrderDetail> SellOrderDetails { get; set; }

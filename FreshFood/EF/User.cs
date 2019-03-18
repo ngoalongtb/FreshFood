@@ -17,7 +17,6 @@ namespace FreshFood.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            this.Customers = new HashSet<Customer>();
             this.SellOrders = new HashSet<SellOrder>();
         }
     
@@ -29,8 +28,6 @@ namespace FreshFood.EF
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Customer> Customers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SellOrder> SellOrders { get; set; }
     }

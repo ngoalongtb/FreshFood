@@ -126,7 +126,10 @@ namespace FreshFood.Screen
             {
                 Product product = db.Products.Find(int.Parse(txtMa.Text));
                 product.Name = txtTen.Text;
-                product.Image = ConvertImageToBinary(Image.FromFile(open.FileName));
+                if (open.FileName != null && open.FileName != "")
+                {
+                    product.Image = ConvertImageToBinary(Image.FromFile(open.FileName));
+                }
                 product.Description = txtDescription.Text;
                 product.CategoryId = (int)cbxDanhMuc.SelectedValue;
                 product.SupplierId = (int)cbxNhaCungCap.SelectedValue;

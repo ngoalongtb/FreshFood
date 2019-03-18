@@ -17,7 +17,6 @@ namespace FreshFood.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            this.BuyOrderDetails = new HashSet<BuyOrderDetail>();
             this.SellOrderDetails = new HashSet<SellOrderDetail>();
         }
     
@@ -30,8 +29,6 @@ namespace FreshFood.EF
         public string Price { get; set; }
         public byte[] Image { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BuyOrderDetail> BuyOrderDetails { get; set; }
         public virtual Category Category { get; set; }
         public virtual Supplier Supplier { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

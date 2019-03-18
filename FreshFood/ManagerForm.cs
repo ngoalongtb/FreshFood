@@ -138,5 +138,10 @@ namespace FreshFood
         {
             Trigger(ScreenName.ORDER);
         }
+
+        private void ManagerForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

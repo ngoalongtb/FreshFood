@@ -40,7 +40,7 @@ namespace FreshFood.Screen
         public void LoadDataBinding()
         {
             lblMaDonHang.DataBindings.Add("Text", dtgv.DataSource, "Id", true, DataSourceUpdateMode.Never);
-            lblTenKhachHang.DataBindings.Add("Text", dtgv.DataSource, "Name", true, DataSourceUpdateMode.Never);
+            lblTenKhachHang.DataBindings.Add("Text", dtgv.DataSource, "Fullname", true, DataSourceUpdateMode.Never);
             lblSoDienThoai.DataBindings.Add("Text", dtgv.DataSource, "PhoneNumber", true, DataSourceUpdateMode.Never);
             lblDiaChi.DataBindings.Add("Text", dtgv.DataSource, "Address", true, DataSourceUpdateMode.Never);
             lblTrangThai.DataBindings.Add("Text", dtgv.DataSource, "Status", true, DataSourceUpdateMode.Never);
@@ -49,19 +49,13 @@ namespace FreshFood.Screen
         public void LoadDtgv()
         {
             User loginUser = Session.LoginAccount;
-            if (loginUser.Customers.Count == 0)
-            {
-                bds.DataSource = db.SellOrders.Select(x => new { x.Id, x.Date, x.Customer.Name, x.Address, x.PhoneNumber, x.Status }).ToList();
-            } else
-            {
-                bds.DataSource = db.SellOrders.Where(x => x.CustomerId == loginUser.Customers.SingleOrDefault().Id).Select(x => new { x.Id, x.Date, x.Customer.Name, x.Address, x.PhoneNumber, x.Status }).ToList();
-            }
+            bds.DataSource = db.SellOrders.Select(x => new { x.Id, x.Date, x.Fullname, x.Address, x.PhoneNumber, x.Status }).ToList();
         }
 
         public void ChangeHeader()
         {
             dtgv.Columns["Id"].HeaderText = "Mã đơn hàng";
-            dtgv.Columns["Name"].HeaderText = "Tên đơn hàng";
+            dtgv.Columns["Fullname"].HeaderText = "Tên khách hàng";
             dtgv.Columns["Date"].HeaderText = "Ngày đặt hàng";
             dtgv.Columns["Address"].HeaderText = "Địa chỉ";
             dtgv.Columns["PhoneNumber"].HeaderText = "Số điện thoại";
@@ -71,15 +65,7 @@ namespace FreshFood.Screen
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             User loginUser = Session.LoginAccount;
-            if (loginUser.Customers.Count == 0)
-            {
-                MessageBox.Show("Bạn không phải là khách hàng");
-                bds.DataSource = db.SellOrders.Where(x => x.CustomerId == loginUser.Customers.SingleOrDefault().Id).Where(x => x.Customer.Name.Contains(txtTimKiem.Text) || x.Address.Contains(txtTimKiem.Text)).Select(x => new { x.Id, x.Date, x.Customer.Name, x.Address, x.PhoneNumber, x.Status }).ToList();
-            }
-            else
-            {
-                bds.DataSource = db.SellOrders.Where(x => x.Customer.Name.Contains(txtTimKiem.Text) || x.Address.Contains(txtTimKiem.Text)).Select(x => new { x.Id, x.Date, x.Customer.Name, x.Address, x.PhoneNumber, x.Status }).ToList();
-            }
+            bds.DataSource = db.SellOrders.Where(x => x.Fullname.Contains(txtTimKiem.Text) || x.Address.Contains(txtTimKiem.Text)).Select(x => new { x.Id, x.Date, x.Fullname, x.Address, x.PhoneNumber, x.Status }).ToList();
             
         }
 

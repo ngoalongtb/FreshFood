@@ -18,7 +18,7 @@ namespace FreshFood.Screen
 
         public void LoadDtgv()
         {
-            bds.DataSource = db.Customers.Select(x => new { x.Id, x.Name, x.PhoneNumber, x.Email, x.Description, x.Username }).ToList();
+            //bds.DataSource = db.Customers.Select(x => new { x.Id, x.Name, x.PhoneNumber, x.Email, x.Description, x.Username }).ToList();
         }
         public void ChangeHeader()
         {
@@ -54,22 +54,22 @@ namespace FreshFood.Screen
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            Customer customer = new Customer();
-            customer.Name = txtTenKhachHang.Text;
-            customer.PhoneNumber = txtPhoneNumber.Text;
-            customer.Email = txtemail.Text;
-            customer.Description = txtDescription.Text;
+            //Customer customer = new Customer();
+            //customer.Name = txtTenKhachHang.Text;
+            //customer.PhoneNumber = txtPhoneNumber.Text;
+            //customer.Email = txtemail.Text;
+            //customer.Description = txtDescription.Text;
 
-            User user = new User();
-            user.Username = txtUser.Text;
-            user.Password = "12345";
-            customer.User = user;
+            //User user = new User();
+            //user.Username = txtUser.Text;
+            //user.Password = "12345";
+            //customer.User = user;
             try
             {
-                db.Customers.Add(customer);
-                db.SaveChanges();
-                MessageBox.Show("Thêm mới thành công");
-                LoadDtgv();
+                //db.Customers.Add(customer);
+                //db.SaveChanges();
+                //MessageBox.Show("Thêm mới thành công");
+                //LoadDtgv();
             }
             catch (Exception)
             {
@@ -81,14 +81,14 @@ namespace FreshFood.Screen
         {
             try
             {
-                Customer customer = db.Customers.Find(int.Parse(txtMa.Text));
-                customer.Name = txtTenKhachHang.Text;
-                customer.PhoneNumber = txtPhoneNumber.Text;
-                customer.Email = txtemail.Text;
-                customer.Description = txtDescription.Text;
-                db.SaveChanges();
-                MessageBox.Show("Cập nhật thành công");
-                LoadDtgv();
+                //Customer customer = db.Customers.Find(int.Parse(txtMa.Text));
+                //customer.Name = txtTenKhachHang.Text;
+                //customer.PhoneNumber = txtPhoneNumber.Text;
+                //customer.Email = txtemail.Text;
+                //customer.Description = txtDescription.Text;
+                //db.SaveChanges();
+                //MessageBox.Show("Cập nhật thành công");
+                //LoadDtgv();
             }
             catch (Exception)
             {
@@ -108,11 +108,11 @@ namespace FreshFood.Screen
 
                 try
                 {
-                    Customer customer = db.Customers.Find(int.Parse(txtMa.Text));
-                    db.Customers.Remove(customer);
-                    db.SaveChanges();
-                    MessageBox.Show("Xóa thành công");
-                    LoadDtgv();
+                    //Customer customer = db.Customers.Find(int.Parse(txtMa.Text));
+                    //db.Customers.Remove(customer);
+                    //db.SaveChanges();
+                    //MessageBox.Show("Xóa thành công");
+                    //LoadDtgv();
                 }
                 catch (Exception)
                 {
@@ -128,7 +128,7 @@ namespace FreshFood.Screen
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            bds.DataSource = db.Customers.Where(x => x.Name.Contains(txtTimKiem.Text) || x.Id.ToString().Contains(txtTimKiem.Text)).Select(x => new { x.Id, x.Name, x.PhoneNumber, x.Email, x.Description, x.Username }).ToList();
+            //bds.DataSource = db.Customers.Where(x => x.Name.Contains(txtTimKiem.Text) || x.Id.ToString().Contains(txtTimKiem.Text)).Select(x => new { x.Id, x.Name, x.PhoneNumber, x.Email, x.Description, x.Username }).ToList();
         }
     }
 }

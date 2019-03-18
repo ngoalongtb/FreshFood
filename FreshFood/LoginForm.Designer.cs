@@ -35,7 +35,6 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
@@ -96,17 +95,6 @@
             this.label1.TabIndex = 54;
             this.label1.Text = "Tài khoản";
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(30, 200);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(127, 19);
-            this.linkLabel1.TabIndex = 62;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Chưa có tài khoản";
-            this.linkLabel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.linkLabel1_MouseClick);
-            // 
             // panel1
             // 
             this.panel1.BackgroundImage = global::FreshFood.Properties.Resources.Freshfood_Logo;
@@ -123,7 +111,6 @@
             this.Appearance.Options.UseForeColor = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(375, 238);
-            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtPassword);
@@ -148,7 +135,6 @@
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

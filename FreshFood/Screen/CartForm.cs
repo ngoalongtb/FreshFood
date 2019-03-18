@@ -26,14 +26,6 @@ namespace FreshFood.Screen
         private void LoadCustomerInfo()
         {
             User loginUser = Session.LoginAccount;
-            if (loginUser.Customers.Count == 0)
-            {
-                MessageBox.Show("Bạn không phải là khách hàng");
-                return;
-            }
-
-            txtDiaChi.Text = loginUser.Customers.SingleOrDefault().Address;
-            txtSoDienThoai.Text = loginUser.Customers.SingleOrDefault().PhoneNumber;
         }
 
         public void LoadCart()
@@ -69,14 +61,8 @@ namespace FreshFood.Screen
                 sellOrder.PhoneNumber = txtSoDienThoai.Text;
                 sellOrder.Status = "Đang xử lý";
                 sellOrder.Date = DateTime.Now;
-
-                if (loginUser.Customers.Count == 0)
-                {
-                    MessageBox.Show("Bạn không phải là khách hàng");
-                    return;
-                }
-
-                sellOrder.CustomerId = loginUser.Customers.SingleOrDefault().Id;
+                sellOrder.Fullname = txtTenKhachHang.Text;
+                sellOrder.Employee = loginUser.Username;
 
                 foreach (var item in Session.Cart.SellOrderDetails)
                 {

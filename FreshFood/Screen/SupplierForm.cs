@@ -109,8 +109,8 @@ namespace FreshFood.Screen
 
                 try
                 {
-                    Customer customer = db.Customers.Find(int.Parse(txtMa.Text));
-                    db.Customers.Remove(customer);
+                    //Customer customer = db.Customers.Find(int.Parse(txtMa.Text));
+                    //db.Customers.Remove(customer);
                     db.SaveChanges();
                     MessageBox.Show("Xóa thành công");
                     LoadDtgv();

@@ -112,16 +112,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppDB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="EF\BuyOrder.cs">
-      <DependentUpon>AppDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\BuyOrderDetail.cs">
-      <DependentUpon>AppDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="EF\Category.cs">
-      <DependentUpon>AppDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\Customer.cs">
       <DependentUpon>AppDB.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Product.cs">
