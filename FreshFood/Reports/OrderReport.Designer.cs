@@ -55,8 +55,8 @@
             this.lblAddress = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblTongTien = new DevExpress.XtraReports.UI.XRLabel();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -120,16 +120,16 @@
             this.xrLabel5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(132)))), ((int)(((byte)(111)))));
             this.xrLabel5.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold);
             this.xrLabel5.ForeColor = System.Drawing.Color.White;
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(144.2708F, 0F);
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(231.7708F, 0F);
             this.xrLabel5.Name = "xrLabel5";
             this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel5.SizeF = new System.Drawing.SizeF(344.7917F, 45.91664F);
+            this.xrLabel5.SizeF = new System.Drawing.SizeF(180.2083F, 45.91664F);
             this.xrLabel5.StylePriority.UseBackColor = false;
             this.xrLabel5.StylePriority.UseBorderColor = false;
             this.xrLabel5.StylePriority.UseFont = false;
             this.xrLabel5.StylePriority.UseForeColor = false;
             this.xrLabel5.StylePriority.UseTextAlignment = false;
-            this.xrLabel5.Text = "   Thống kê theo dịch vụ:";
+            this.xrLabel5.Text = "   HÓA ĐƠN";
             this.xrLabel5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // lblToDay
@@ -312,10 +312,6 @@
             this.lblTongTien.StylePriority.UseFont = false;
             this.lblTongTien.Text = "lblFromDate";
             // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataSource = typeof(FreshFood.AppCode.ReportItem);
-            // 
             // GroupFooter1
             // 
             this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
@@ -323,6 +319,10 @@
             this.lblTongTien});
             this.GroupFooter1.HeightF = 100F;
             this.GroupFooter1.Name = "GroupFooter1";
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = typeof(FreshFood.AppCode.ReportItem);
             // 
             // OrderReport
             // 
