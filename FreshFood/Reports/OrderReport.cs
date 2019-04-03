@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
+using System.Linq;
 using DevExpress.XtraReports.UI;
 using FreshFood.EF;
 
@@ -27,6 +28,10 @@ namespace FreshFood.Reports
             lblPhoneNumber.Text = sellOrder.PhoneNumber;
 
             lblToDay.Text = DateTime.Today.ToString("dd/M/yyyy");
+
+            double total = sellOrder.SellOrderDetails.Sum(x => x.Price * x.Quantity).Value;
+            lblTongTien.Text = total.ToString();
+
         }
 
     }

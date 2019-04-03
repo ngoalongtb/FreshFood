@@ -47,13 +47,16 @@
             this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblPhoneNumber = new DevExpress.XtraReports.UI.XRLabel();
             this.lblFullName = new DevExpress.XtraReports.UI.XRLabel();
             this.lblAddress = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblTongTien = new DevExpress.XtraReports.UI.XRLabel();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -225,10 +228,6 @@
             this.xrTableCell3.Name = "xrTableCell3";
             this.xrTableCell3.Weight = 0.2857142857142857D;
             // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataSource = typeof(FreshFood.AppCode.ReportItem);
-            // 
             // xrLabel1
             // 
             this.xrLabel1.Font = new System.Drawing.Font("Arial", 9.75F);
@@ -292,6 +291,39 @@
             this.lblAddress.StylePriority.UseFont = false;
             this.lblAddress.Text = "lblFromDate";
             // 
+            // xrLabel4
+            // 
+            this.xrLabel4.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(432.2917F, 10.00001F);
+            this.xrLabel4.Name = "xrLabel4";
+            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel4.SizeF = new System.Drawing.SizeF(106.25F, 23F);
+            this.xrLabel4.StylePriority.UseBackColor = false;
+            this.xrLabel4.StylePriority.UseFont = false;
+            this.xrLabel4.Text = "Tổng tiền:";
+            // 
+            // lblTongTien
+            // 
+            this.lblTongTien.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblTongTien.LocationFloat = new DevExpress.Utils.PointFloat(540F, 10.00001F);
+            this.lblTongTien.Name = "lblTongTien";
+            this.lblTongTien.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblTongTien.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.lblTongTien.StylePriority.UseFont = false;
+            this.lblTongTien.Text = "lblFromDate";
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = typeof(FreshFood.AppCode.ReportItem);
+            // 
+            // GroupFooter1
+            // 
+            this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel4,
+            this.lblTongTien});
+            this.GroupFooter1.HeightF = 100F;
+            this.GroupFooter1.Name = "GroupFooter1";
+            // 
             // OrderReport
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -300,7 +332,8 @@
             this.BottomMargin,
             this.ReportHeader,
             this.PageHeader,
-            this.GroupHeader1});
+            this.GroupHeader1,
+            this.GroupFooter1});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.bindingSource1});
             this.DataSource = this.bindingSource1;
@@ -338,5 +371,8 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel3;
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel4;
+        private DevExpress.XtraReports.UI.XRLabel lblTongTien;
+        private DevExpress.XtraReports.UI.GroupFooterBand GroupFooter1;
     }
 }
