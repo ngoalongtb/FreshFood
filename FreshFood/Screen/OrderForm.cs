@@ -78,7 +78,7 @@ namespace FreshFood.Screen
             {
                 reportItems.Add(new ReportItem(item.Product.Name, item.Price.ToString(), item.Quantity.ToString()));
             }
-            OrderReport report = new OrderReport();
+            OrderReport report = new OrderReport(sellOrder);
             report.DataSource = reportItems;
             ReportPrintTool printTool = new ReportPrintTool(report);
             printTool.ShowPreview();
