@@ -30,15 +30,15 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
+            this.txtTenKhachHang = new System.Windows.Forms.TextBox();
             this.txtSoDienThoai = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnOrder = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.lblTotalPrice = new System.Windows.Forms.Label();
             this.pnCart = new System.Windows.Forms.FlowLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtTenKhachHang = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,12 +68,29 @@
             this.txtDiaChi.Size = new System.Drawing.Size(429, 57);
             this.txtDiaChi.TabIndex = 5;
             // 
+            // txtTenKhachHang
+            // 
+            this.txtTenKhachHang.Location = new System.Drawing.Point(131, 6);
+            this.txtTenKhachHang.Name = "txtTenKhachHang";
+            this.txtTenKhachHang.Size = new System.Drawing.Size(327, 27);
+            this.txtTenKhachHang.TabIndex = 5;
+            // 
             // txtSoDienThoai
             // 
             this.txtSoDienThoai.Location = new System.Drawing.Point(131, 39);
             this.txtSoDienThoai.Name = "txtSoDienThoai";
             this.txtSoDienThoai.Size = new System.Drawing.Size(327, 27);
             this.txtSoDienThoai.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            this.label3.Location = new System.Drawing.Point(12, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 19);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Tên khách hàng";
             // 
             // label2
             // 
@@ -105,7 +122,7 @@
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.Size = new System.Drawing.Size(139, 44);
             this.btnOrder.TabIndex = 3;
-            this.btnOrder.Text = "Đặt hàng";
+            this.btnOrder.Text = "Thanh toán";
             this.btnOrder.UseVisualStyleBackColor = false;
             this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
@@ -143,23 +160,6 @@
             this.pnCart.Size = new System.Drawing.Size(990, 356);
             this.pnCart.TabIndex = 1;
             this.pnCart.WrapContents = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.label3.Location = new System.Drawing.Point(12, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 19);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Tên khách hàng";
-            // 
-            // txtTenKhachHang
-            // 
-            this.txtTenKhachHang.Location = new System.Drawing.Point(131, 6);
-            this.txtTenKhachHang.Name = "txtTenKhachHang";
-            this.txtTenKhachHang.Size = new System.Drawing.Size(327, 27);
-            this.txtTenKhachHang.TabIndex = 5;
             // 
             // CartForm
             // 

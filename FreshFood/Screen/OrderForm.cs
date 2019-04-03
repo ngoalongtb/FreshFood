@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FreshFood.Reports;
+using DevExpress.XtraReports.UI;
 
 namespace FreshFood.Screen
 {
@@ -43,13 +45,12 @@ namespace FreshFood.Screen
             lblTenKhachHang.DataBindings.Add("Text", dtgv.DataSource, "Fullname", true, DataSourceUpdateMode.Never);
             lblSoDienThoai.DataBindings.Add("Text", dtgv.DataSource, "PhoneNumber", true, DataSourceUpdateMode.Never);
             lblDiaChi.DataBindings.Add("Text", dtgv.DataSource, "Address", true, DataSourceUpdateMode.Never);
-            lblTrangThai.DataBindings.Add("Text", dtgv.DataSource, "Status", true, DataSourceUpdateMode.Never);
         }
 
         public void LoadDtgv()
         {
             User loginUser = Session.LoginAccount;
-            bds.DataSource = db.SellOrders.Select(x => new { x.Id, x.Date, x.Fullname, x.Address, x.PhoneNumber, x.Status }).ToList();
+            bds.DataSource = db.SellOrders.Select(x => new { x.Id, x.Date, x.Fullname, x.Address, x.PhoneNumber }).ToList();
         }
 
         public void ChangeHeader()
@@ -59,16 +60,28 @@ namespace FreshFood.Screen
             dtgv.Columns["Date"].HeaderText = "Ngày đặt hàng";
             dtgv.Columns["Address"].HeaderText = "Địa chỉ";
             dtgv.Columns["PhoneNumber"].HeaderText = "Số điện thoại";
-            dtgv.Columns["Status"].HeaderText = "Trạng thái";
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             User loginUser = Session.LoginAccount;
-            bds.DataSource = db.SellOrders.Where(x => x.Fullname.Contains(txtTimKiem.Text) || x.Address.Contains(txtTimKiem.Text)).Select(x => new { x.Id, x.Date, x.Fullname, x.Address, x.PhoneNumber, x.Status }).ToList();
+            bds.DataSource = db.SellOrders.Where(x => x.Fullname.Contains(txtTimKiem.Text) || x.Address.Contains(txtTimKiem.Text)).Select(x => new { x.Id, x.Date, x.Fullname, x.Address, x.PhoneNumber }).ToList();
             
         }
 
-        
+        private void btnPrintOrder_Click(object sender, EventArgs e)
+        {
+            SellOrder sellOrder = db.SellOrders.Find(int.Parse(lblMaDonHang.Text));
+
+            List<ReportItem> reportItems = new List<ReportItem>();
+            foreach (var item in sellOrder.SellOrderDetails.ToList())
+            {
+                reportItems.Add(new ReportItem(item.Product.Name, item.Price.ToString(), item.Quantity.ToString()));
+            }
+            OrderReport report = new OrderReport();
+            report.DataSource = reportItems;
+            ReportPrintTool printTool = new ReportPrintTool(report);
+            printTool.ShowPreview();
+        }
     }
 }

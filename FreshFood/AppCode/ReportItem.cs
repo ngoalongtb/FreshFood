@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FreshFood.AppCode
+{
+    public class ReportItem
+    {
+        public string TenSanPham { get; set; }
+        public string Gia { get; set; }
+        public String SoLuong { get; set; }
+
+        public ReportItem() { }
+
+        public ReportItem(String tenSanPham, string gia, string soLuong)
+        {
+            this.TenSanPham = tenSanPham;
+            this.Gia = gia;
+            this.SoLuong = soLuong;
+        }
+    }
+}

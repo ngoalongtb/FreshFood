@@ -64,5 +64,17 @@ namespace FreshFood.Screen
                 pnProducts.Controls.Add(productUC);
             }
         }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            pnProducts.Controls.Clear();
+
+            foreach (var item in appDB.Products.Where(x => x.Name.Contains(txtTimKiem.Text)).ToList())
+            {
+                ProductUC productUC = new ProductUC(item);
+                productUC.Show();
+                pnProducts.Controls.Add(productUC);
+            }
+        }
     }
 }

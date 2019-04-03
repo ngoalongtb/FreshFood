@@ -36,17 +36,16 @@
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPrintOrder = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblMaDonHang = new System.Windows.Forms.Label();
-            this.lblTenKhachHang = new System.Windows.Forms.Label();
-            this.lblSoDienThoai = new System.Windows.Forms.Label();
             this.lblDiaChi = new System.Windows.Forms.Label();
-            this.lblTrangThai = new System.Windows.Forms.Label();
+            this.lblSoDienThoai = new System.Windows.Forms.Label();
+            this.lblTenKhachHang = new System.Windows.Forms.Label();
+            this.lblMaDonHang = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -141,6 +140,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnPrintOrder);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(724, 53);
@@ -148,14 +148,29 @@
             this.panel1.Size = new System.Drawing.Size(284, 485);
             this.panel1.TabIndex = 44;
             // 
+            // btnPrintOrder
+            // 
+            this.btnPrintOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199)))));
+            this.btnPrintOrder.FlatAppearance.BorderSize = 0;
+            this.btnPrintOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintOrder.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintOrder.ForeColor = System.Drawing.Color.White;
+            this.btnPrintOrder.Image = global::FreshFood.Properties.Resources.groupheader_32x32;
+            this.btnPrintOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrintOrder.Location = new System.Drawing.Point(139, 246);
+            this.btnPrintOrder.Name = "btnPrintOrder";
+            this.btnPrintOrder.Size = new System.Drawing.Size(127, 42);
+            this.btnPrintOrder.TabIndex = 52;
+            this.btnPrintOrder.Text = "       In hóa đơn";
+            this.btnPrintOrder.UseVisualStyleBackColor = false;
+            this.btnPrintOrder.Click += new System.EventHandler(this.btnPrintOrder_Click);
+            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lblTrangThai);
             this.groupBox1.Controls.Add(this.lblDiaChi);
             this.groupBox1.Controls.Add(this.lblSoDienThoai);
             this.groupBox1.Controls.Add(this.lblTenKhachHang);
             this.groupBox1.Controls.Add(this.lblMaDonHang);
-            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -167,68 +182,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Đơn hàng";
             // 
-            // label1
+            // lblDiaChi
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Mã đơn hàng:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 171);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 19);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Trạng thái:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 83);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 19);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Tên khách hàng:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 115);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 19);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Số điện thoại:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 144);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 19);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Địa chỉ:";
-            // 
-            // lblMaDonHang
-            // 
-            this.lblMaDonHang.AutoSize = true;
-            this.lblMaDonHang.Location = new System.Drawing.Point(144, 54);
-            this.lblMaDonHang.Name = "lblMaDonHang";
-            this.lblMaDonHang.Size = new System.Drawing.Size(19, 19);
-            this.lblMaDonHang.TabIndex = 2;
-            this.lblMaDonHang.Text = "[]";
-            // 
-            // lblTenKhachHang
-            // 
-            this.lblTenKhachHang.AutoSize = true;
-            this.lblTenKhachHang.Location = new System.Drawing.Point(144, 83);
-            this.lblTenKhachHang.Name = "lblTenKhachHang";
-            this.lblTenKhachHang.Size = new System.Drawing.Size(19, 19);
-            this.lblTenKhachHang.TabIndex = 2;
-            this.lblTenKhachHang.Text = "[]";
+            this.lblDiaChi.AutoSize = true;
+            this.lblDiaChi.Location = new System.Drawing.Point(144, 144);
+            this.lblDiaChi.Name = "lblDiaChi";
+            this.lblDiaChi.Size = new System.Drawing.Size(19, 19);
+            this.lblDiaChi.TabIndex = 2;
+            this.lblDiaChi.Text = "[]";
             // 
             // lblSoDienThoai
             // 
@@ -239,23 +200,59 @@
             this.lblSoDienThoai.TabIndex = 2;
             this.lblSoDienThoai.Text = "[]";
             // 
-            // lblDiaChi
+            // lblTenKhachHang
             // 
-            this.lblDiaChi.AutoSize = true;
-            this.lblDiaChi.Location = new System.Drawing.Point(144, 144);
-            this.lblDiaChi.Name = "lblDiaChi";
-            this.lblDiaChi.Size = new System.Drawing.Size(19, 19);
-            this.lblDiaChi.TabIndex = 2;
-            this.lblDiaChi.Text = "[]";
+            this.lblTenKhachHang.AutoSize = true;
+            this.lblTenKhachHang.Location = new System.Drawing.Point(144, 83);
+            this.lblTenKhachHang.Name = "lblTenKhachHang";
+            this.lblTenKhachHang.Size = new System.Drawing.Size(19, 19);
+            this.lblTenKhachHang.TabIndex = 2;
+            this.lblTenKhachHang.Text = "[]";
             // 
-            // lblTrangThai
+            // lblMaDonHang
             // 
-            this.lblTrangThai.AutoSize = true;
-            this.lblTrangThai.Location = new System.Drawing.Point(144, 171);
-            this.lblTrangThai.Name = "lblTrangThai";
-            this.lblTrangThai.Size = new System.Drawing.Size(19, 19);
-            this.lblTrangThai.TabIndex = 2;
-            this.lblTrangThai.Text = "[]";
+            this.lblMaDonHang.AutoSize = true;
+            this.lblMaDonHang.Location = new System.Drawing.Point(144, 54);
+            this.lblMaDonHang.Name = "lblMaDonHang";
+            this.lblMaDonHang.Size = new System.Drawing.Size(19, 19);
+            this.lblMaDonHang.TabIndex = 2;
+            this.lblMaDonHang.Text = "[]";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(15, 144);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 19);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Địa chỉ:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(15, 115);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(98, 19);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Số điện thoại:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 83);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(114, 19);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Tên khách hàng:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 19);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Mã đơn hàng:";
             // 
             // OrderForm
             // 
@@ -286,15 +283,14 @@
         private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblTrangThai;
         private System.Windows.Forms.Label lblDiaChi;
         private System.Windows.Forms.Label lblSoDienThoai;
         private System.Windows.Forms.Label lblTenKhachHang;
         private System.Windows.Forms.Label lblMaDonHang;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnPrintOrder;
     }
 }
