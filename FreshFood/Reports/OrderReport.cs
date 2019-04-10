@@ -27,6 +27,11 @@ namespace FreshFood.Reports
             lblAddress.Text = sellOrder.Address;
             lblPhoneNumber.Text = sellOrder.PhoneNumber;
 
+            if (sellOrder.Date != null)
+            {
+                lblNgayMuaHang.Text = sellOrder.Date.Value.ToString("dd/M/yyyy");
+            }
+
             lblToDay.Text = DateTime.Today.ToString("dd/M/yyyy");
 
             double total = sellOrder.SellOrderDetails.Sum(x => x.Price * x.Quantity).Value;

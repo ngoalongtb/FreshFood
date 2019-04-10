@@ -74,9 +74,11 @@ namespace FreshFood.Screen
             SellOrder sellOrder = db.SellOrders.Find(int.Parse(lblMaDonHang.Text));
 
             List<ReportItem> reportItems = new List<ReportItem>();
+            int i = 0;
             foreach (var item in sellOrder.SellOrderDetails.ToList())
             {
-                reportItems.Add(new ReportItem(item.Product.Name, item.Price.ToString(), item.Quantity.ToString()));
+                i++;
+                reportItems.Add(new ReportItem(i, item.Product.Name, item.Price.ToString(), item.Quantity.ToString(), (item.Price * item.Quantity) .ToString()));
             }
             OrderReport report = new OrderReport(sellOrder);
             report.DataSource = reportItems;
